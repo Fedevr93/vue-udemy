@@ -15,13 +15,22 @@ const routes = [
       component: () => import(/* webpackChunkName: "AboutPage" */ '../modules/pokemon/pages/AboutPage') 
     },
     { 
-      path: '/:id', 
-      component: () => import(/* webpackChunkName: "PokemonPage" */ '../modules/pokemon/pages/PokemonPage') 
+      path: '/:id',
+      name: 'pokemon-id',
+      component: () => import(/* webpackChunkName: "PokemonPage" */ '../modules/pokemon/pages/PokemonPage'),
+      props: ( route ) => {
+        const id = Number( route.params.id );
+        return isNaN( id ) ? { id: 1 } : { id }
+      } 
     },
     { 
       path: '/:pathMatch(.*)*', 
       component: () => import(/* webpackChunkName: "NoPageFound" */ '../modules/shared/pages/NoPageFound')
     },
+    {
+      path: '/basura',
+      component: import('../modules/pokemon/pages/BasuraPage')
+    }
 ]
 
 const router = createRouter(

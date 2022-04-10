@@ -3,6 +3,7 @@
         <router-link to="/">Pokemon List</router-link>
         <router-link to="/id">Pokemon por Id</router-link>
         <router-link to="/about">About</router-link>
+        <router-link to="/basura">Basura</router-link>
     </div>
 </template>
 
@@ -21,4 +22,5 @@ div a {
 div .router-link-exact-active {
     color: #42b983
 }
+
 </style>
